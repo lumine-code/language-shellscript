@@ -8,6 +8,10 @@ Shell script language support.
 - **Syntax highlighting**: full grammar coverage for Bash, Unix shell scripts, and shell sessions.
 - **Snippets**: shortcuts for common shell constructs.
 
+## Installation
+
+To install `language-shellscript` search for _language-shellscript_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/language-shellscript`.
+
 ## Services
 
 - **hyperlink.injection** (`^1.0.0`): consumed to highlight URLs inside shell scripts as clickable links.
