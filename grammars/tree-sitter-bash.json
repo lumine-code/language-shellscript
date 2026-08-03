@@ -20,7 +20,6 @@
     "bash_login",
     "profile",
     "bash_logout",
-    "npmrc",
     "PKGBUILD",
     "install",
     "cygport",
