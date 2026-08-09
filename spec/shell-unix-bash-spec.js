@@ -1,10 +1,10 @@
 let TextEditor = null;
 const buildTextEditor = function (params) {
-  if (atom.workspace.buildTextEditor != null) {
-    return atom.workspace.buildTextEditor(params);
+  if (lumine.workspace.buildTextEditor != null) {
+    return lumine.workspace.buildTextEditor(params);
   } else {
     if (TextEditor == null) {
-      ({ TextEditor } = require("atom"));
+      ({ TextEditor } = require("lumine"));
     }
     return new TextEditor(params);
   }
@@ -14,11 +14,11 @@ describe("Shell script grammar", function () {
   let grammar = null;
 
   beforeEach(function () {
-    atom.config.set("language.useTreeSitterParsers", false);
+    lumine.config.set("language.useTreeSitterParsers", false);
 
-    waitsForPromise(() => atom.packages.activatePackage("language-shellscript"));
+    waitsForPromise(() => lumine.packages.activatePackage("language-shellscript"));
 
-    runs(() => (grammar = atom.grammars.grammarForScopeName("source.shell")));
+    runs(() => (grammar = lumine.grammars.grammarForScopeName("source.shell")));
   });
 
   it("parses the grammar", function () {
