@@ -1,12 +1,12 @@
 describe("Shell session grammar", () => {
   let grammar = null;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     lumine.config.set("language.useTreeSitterParsers", false);
 
-    waitsForPromise(() => lumine.packages.activatePackage("language-shellscript"));
+    await lumine.packages.activatePackage("language-shellscript");
 
-    runs(() => (grammar = lumine.grammars.grammarForScopeName("text.shell-session")));
+    grammar = lumine.grammars.grammarForScopeName("text.shell-session");
   });
 
   it("parses the grammar", () => {

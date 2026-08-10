@@ -13,12 +13,12 @@ const buildTextEditor = function (params) {
 describe("Shell script grammar", function () {
   let grammar = null;
 
-  beforeEach(function () {
+  beforeEach(async () => {
     lumine.config.set("language.useTreeSitterParsers", false);
 
-    waitsForPromise(() => lumine.packages.activatePackage("language-shellscript"));
+    await lumine.packages.activatePackage("language-shellscript");
 
-    runs(() => (grammar = lumine.grammars.grammarForScopeName("source.shell")));
+    grammar = lumine.grammars.grammarForScopeName("source.shell");
   });
 
   it("parses the grammar", function () {
