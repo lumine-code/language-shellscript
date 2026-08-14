@@ -10,12 +10,12 @@ Shell script language support.
 
 ## Installation
 
-To install `language-shellscript` search for _language-shellscript_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/language-shellscript`.
+To install `language-shellscript` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/language-shellscript`.
 
 ## Services
 
-- **hyperlink.injection** (`^1.0.0`): consumed to highlight URLs inside shell scripts as clickable links.
-- **todo.injection** (`^1.0.0`): consumed to highlight `TODO`-style markers inside comments.
+- `hyperlink.injection`: consumed to highlight URLs inside shell scripts as clickable links.
+- `todo.injection`: consumed to highlight `TODO`-style markers inside comments.
 
 ## Contributing
 
