@@ -37,7 +37,7 @@
   "injectionRegex": "(^(bash|BASH)$|sh$|SH$)",
   "treeSitter": {
     "parserSource": "github:tree-sitter/tree-sitter-bash#v0.25.1",
-    "wasmBuildTool": "tree-sitter-cli#v0.26.11",
+    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
     "grammar": "tree-sitter/tree-sitter-bash.wasm",
     "highlightsQuery": "tree-sitter/highlights.scm",
     "tagsQuery": "tree-sitter/tags.scm",
