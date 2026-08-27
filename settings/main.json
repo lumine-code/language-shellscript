@@ -1,6 +1,6 @@
 {
   ".source.shell": {
-    "language": {
+    "editor": {
       "commentStart": "# ",
       "commentDelimiters": {
         "line": "#"
