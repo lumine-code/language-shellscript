@@ -123,14 +123,15 @@
 ; ======
 
 (array) @meta.array.shell
-(array
-  (word) @string.unquoted.shell)
+((word) @string.unquoted.shell
+  (#is? test.childOfType array))
 
 
 ; OPERATORS
 ; =========
 
-(list ["&&" "||"] @keyword.operator.logical.shell)
+(["&&" "||"] @keyword.operator.logical.shell
+  (#is? test.childOfType list))
 (binary_expression ["&&" "||"] @keyword.operator.logical.shell)
 
 (pipeline "|" @keyword.operator.pipe.shell)
@@ -190,16 +191,20 @@
 
 ; `((` and `))` delimit a compound statement rather than a test command, and
 ; their contents parse as arithmetic, so `((i++))` reads as an increment.
-(compound_statement
-  "((" @punctuation.brace.double-round.begin.shell)
-(compound_statement
-  "))" @punctuation.brace.double-round.end.shell)
+(("((" @punctuation.brace.double-round.begin.shell)
+  (#is? test.childOfType compound_statement)
+  (#is? test.first true))
+(("))" @punctuation.brace.double-round.end.shell)
+  (#is? test.childOfType compound_statement)
+  (#is? test.last true))
 
 
-(test_command
-  "[[" @punctuation.brace.double-square.begin.shell)
-(test_command
-  "]]" @punctuation.brace.double-square.end.shell)
+(("[[" @punctuation.brace.double-square.begin.shell)
+  (#is? test.childOfType test_command)
+  (#is? test.first true))
+(("]]" @punctuation.brace.double-square.end.shell)
+  (#is? test.childOfType test_command)
+  (#is? test.last true))
 
 ; PUNCTUATION
 ; ===========
