@@ -37,7 +37,7 @@
   "injectionNames": ["bash", "sh", "shell"],
   "treeSitter": {
     "parserSource": "github:tree-sitter/tree-sitter-bash#v0.25.1",
-    "wasmBuildTool": "tree-sitter-cli#v0.26.13",
+    "wasmBuildTool": "tree-sitter-cli#v0.27.0",
     "grammar": "bash.wasm",
     "highlightsQuery": "bash-highlights.scm",
     "tagsQuery": "bash-tags.scm",
