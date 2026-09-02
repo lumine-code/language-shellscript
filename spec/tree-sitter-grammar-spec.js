@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const highlightsPath = path.join(__dirname, "..", "grammars", "tree-sitter", "highlights.scm");
+const highlightsPath = path.join(__dirname, "..", "grammars", "bash-highlights.scm");
 
 describe("WASM Tree-sitter Shell Script grammar", () => {
   beforeEach(async () => {

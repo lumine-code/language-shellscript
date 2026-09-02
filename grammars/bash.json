@@ -34,15 +34,15 @@
   ],
   // Try to match `bash` exactly, or failing that, anything that ends in `sh`
   // (for zsh/fish/etc.).
-  "injectionRegex": "(^(bash|BASH)$|sh$|SH$)",
+  "injectionNames": ["bash", "sh", "shell"],
   "treeSitter": {
     "parserSource": "github:tree-sitter/tree-sitter-bash#v0.25.1",
     "wasmBuildTool": "tree-sitter-cli#v0.26.13",
-    "grammar": "tree-sitter/tree-sitter-bash.wasm",
-    "highlightsQuery": "tree-sitter/highlights.scm",
-    "tagsQuery": "tree-sitter/tags.scm",
-    "foldsQuery": "tree-sitter/folds.scm",
-    "indentsQuery": "tree-sitter/indents.scm"
+    "grammar": "bash.wasm",
+    "highlightsQuery": "bash-highlights.scm",
+    "tagsQuery": "bash-tags.scm",
+    "foldsQuery": "bash-folds.scm",
+    "indentsQuery": "bash-indents.scm"
   },
   "comments": {
     "start": "# "

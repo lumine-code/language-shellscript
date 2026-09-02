@@ -4,8 +4,8 @@ Shell script language support.
 
 ## Features
 
-- **Grammars**: provides Tree-sitter grammars built from [tree-sitter-bash](https://github.com/tree-sitter/tree-sitter-bash) and TextMate grammars derived from [atom/language-shellscript](https://github.com/atom/language-shellscript).
-- **Syntax highlighting**: full grammar coverage for Bash, Unix shell scripts, and shell sessions.
+- **Grammars**: provides a Tree-sitter grammar built from [tree-sitter-bash](https://github.com/tree-sitter/tree-sitter-bash).
+- **Syntax highlighting**: full grammar coverage for Bash and Unix shell scripts.
 - **Snippets**: shortcuts for common shell constructs.
 
 ## Installation
