@@ -1,7 +1,8 @@
 ; Missing compared to the TM-style grammar:
 ; Glob operators (`*`)
 
-(comment) @comment.line.number-sign.shell
+((comment) @comment.line.number-sign.shell
+  (#set! adjust.endBeforeFirstMatchOf "\\r?$"))
 
 (function_definition
   name: (_) @entity.name.function.shell)
@@ -68,9 +69,11 @@
 ; =======
 
 (string "\"") @string.quoted.double.shell
-(string "\"" @punctuation.definition.string.begin.shell
+("\"" @punctuation.definition.string.begin.shell
+  (#is? test.childOfType string)
   (#is? test.first true))
-(string "\"" @punctuation.definition.string.end.shell
+("\"" @punctuation.definition.string.end.shell
+  (#is? test.childOfType string)
   (#is? test.last true))
 (raw_string) @string.quoted.single.shell
 ((raw_string) @punctuation.definition.string.begin.shell
@@ -87,8 +90,8 @@
   (#match? @punctuation.definition.string.end.shell ".$")
   (#set! adjust.startAndEndAroundFirstMatchOf ".$"))
 
-(string
-  (command_substitution) @meta.embedded.line.subshell.shell
+((command_substitution) @meta.embedded.line.subshell.shell
+  (#is? test.childOfType string)
   (#set! capture.final true))
 
 ; Command substitution with backticks: var=`cmd`
@@ -134,7 +137,8 @@
   (#is? test.childOfType list))
 (binary_expression ["&&" "||"] @keyword.operator.logical.shell)
 
-(pipeline "|" @keyword.operator.pipe.shell)
+("|" @keyword.operator.pipe.shell
+  (#is? test.childOfType pipeline))
 
 ; Any expansion operator, including all `#`s and `%`s in the following examples:
 ;
