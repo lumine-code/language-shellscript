@@ -32,9 +32,8 @@
     // vim modeline
     "vim\\b.*\\bset\\b.*\\b(filetype|ft|syntax)=(sh|bash)"
   ],
-  // Try to match `bash` exactly, or failing that, anything that ends in `sh`
-  // (for zsh/fish/etc.).
-  "injectionNames": ["bash", "sh", "shell"],
+  // Exact names for Bash, generic shell fences and the compatible zsh syntax.
+  "injectionNames": ["bash", "sh", "shell", "shell-script", "zsh"],
   "treeSitter": {
     "parserSource": "github:tree-sitter/tree-sitter-bash#v0.25.1",
     "wasmBuildTool": "tree-sitter-cli#v0.27.0",
