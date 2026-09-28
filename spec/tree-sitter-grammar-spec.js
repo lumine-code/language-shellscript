@@ -9,6 +9,11 @@ describe("WASM Tree-sitter Shell Script grammar", () => {
     await lumine.packages.activatePackage("language-shellscript");
   });
 
+  async function highlightCaptures(editor, options) {
+    const groups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", options);
+    return groups.find(({ grammar }) => grammar === editor.getGrammar())?.captures ?? [];
+  }
+
   it("passes grammar tests", async () => {
     await runGrammarTests(path.join(__dirname, "fixtures", "sample.sh"), /#/);
   });
@@ -49,21 +54,19 @@ describe("WASM Tree-sitter Shell Script grammar", () => {
       ).join("\r\n"),
     );
     await editor.languageMode.ready;
-    const layer = editor.languageMode.rootLanguageLayer;
-
-    expect(layer.queries.highlightsQuery.captures(layer.tree.rootNode).length).toBeLessThanOrEqual(
-      33000,
-    );
+    expect((await highlightCaptures(editor)).length).toBeLessThanOrEqual(33000);
     expect(
-      layer.queries.highlightsQuery.captures(layer.tree.rootNode, {
-        startPosition: new Point(400, 0),
-        endPosition: new Point(406, 0),
-      }).length,
+      (
+        await highlightCaptures(editor, {
+          startPosition: new Point(400, 0),
+          endPosition: new Point(406, 0),
+        })
+      ).length,
     ).toBeLessThanOrEqual(200);
 
     editor.setText(["values=(", ...Array(6000).fill("middle"), ")"].join("\r\n"));
     await editor.languageMode.atTransactionEnd();
-    const middleCaptures = layer.queries.highlightsQuery.captures(layer.tree.rootNode, {
+    const middleCaptures = await highlightCaptures(editor, {
       startPosition: new Point(3000, 0),
       endPosition: new Point(3006, 0),
     });
@@ -85,7 +88,7 @@ describe("WASM Tree-sitter Shell Script grammar", () => {
     expect(
       editor.scopeDescriptorForBufferPosition([3000, pipelineColumn]).getScopesArray(),
     ).toContain("keyword.operator.pipe.shell");
-    const pipelineCaptures = layer.queries.highlightsQuery.captures(layer.tree.rootNode, {
+    const pipelineCaptures = await highlightCaptures(editor, {
       startPosition: new Point(3000, 0),
       endPosition: new Point(3006, 0),
     });
@@ -113,12 +116,12 @@ describe("WASM Tree-sitter Shell Script grammar", () => {
     expect(editor.scopeDescriptorForBufferPosition([3000, 2]).getScopesArray()).toContain(
       "meta.embedded.line.subshell.shell",
     );
-    const substitutionCaptures = layer.queries.highlightsQuery
-      .captures(layer.tree.rootNode, {
+    const substitutionCaptures = (
+      await highlightCaptures(editor, {
         startPosition: new Point(3000, 0),
         endPosition: new Point(3006, 0),
       })
-      .filter(({ name }) => name === "meta.embedded.line.subshell.shell");
+    ).filter(({ name }) => name === "meta.embedded.line.subshell.shell");
     expect(substitutionCaptures.length).toBe(6);
     expect(
       substitutionCaptures.every(
