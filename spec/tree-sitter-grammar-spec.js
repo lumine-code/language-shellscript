@@ -10,8 +10,9 @@ describe("WASM Tree-sitter Shell Script grammar", () => {
   });
 
   async function highlightCaptures(editor, options) {
-    const groups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", options);
-    return groups.find(({ grammar }) => grammar === editor.getGrammar())?.captures ?? [];
+    const capturesQuery = await editor.getGrammar().getQuery("highlightsQuery");
+    const queryRoot = editor.getSyntaxNodeAtBufferPosition([0, 0], (node) => !node.parent);
+    return capturesQuery.captures(queryRoot, options);
   }
 
   it("passes grammar tests", async () => {
