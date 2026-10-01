@@ -43,7 +43,8 @@
     "highlightsQuery": "bash-highlights.scm",
     "tagsQuery": "bash-tags.scm",
     "foldsQuery": "bash-folds.scm",
-    "indentsQuery": "bash-indents.scm"
+    "indentsQuery": "bash-indents.scm",
+    "injectionsQuery": "bash-injections.scm"
   },
   "comments": {
     "start": "# "
