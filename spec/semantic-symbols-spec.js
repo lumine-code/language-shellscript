@@ -23,6 +23,7 @@ describe(`${path.basename(path.resolve(__dirname, ".."))} semantic buffer symbol
       const main = lumine.packages.getActivePackage("symbol-tree-sitter").mainModule;
       const provider = main.provideDocumentSymbolProvider();
       const symbols = await provider.getDocumentSymbols(editor, {
+        sourceId: "symbol-tree-sitter",
         signal: new AbortController().signal,
       });
       const found = symbols.map(({ name, tag }) => ({ name, tag }));
@@ -38,6 +39,7 @@ describe(`${path.basename(path.resolve(__dirname, ".."))} semantic buffer symbol
       editor.setText(fixture.text.replace(fixture.symbols[0].name.split(".")[0], "renamed"));
       await editor.whenGrammarSettled();
       const updated = await provider.getDocumentSymbols(editor, {
+        sourceId: "symbol-tree-sitter",
         signal: new AbortController().signal,
       });
       expect(updated.some((symbol) => symbol.name === fixture.symbols[0].name)).toBe(false);
