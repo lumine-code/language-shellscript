@@ -1,0 +1,13 @@
+{
+  "source.shell": {
+    "text": "greet() { printf \"hello\\n\"; }\n",
+    "symbols": [
+      {
+        "name": "greet",
+        "tag": "function"
+      }
+    ],
+    "absent": ["printf"],
+    "only": true
+  }
+}

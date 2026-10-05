@@ -1,2 +1,2 @@
 
-(function_definition name: (_) @name)
+(function_definition name: (_) @name) @definition.function
