@@ -2,6 +2,8 @@
 
 Shell script language support.
 
+Fork of [pulsar-edit/pulsar](https://github.com/pulsar-edit/pulsar) (`packages/language-shellscript`).
+
 ## Features
 
 - **Grammars**: provides a Tree-sitter grammar built from [tree-sitter-bash](https://github.com/tree-sitter/tree-sitter-bash).
