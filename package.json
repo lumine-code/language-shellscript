@@ -40,6 +40,7 @@
     "prettier": "^3.9.9"
   },
   "specPackages": [
-    "symbol-tree-sitter"
+    "symbol-tree-sitter",
+    "snippets"
   ]
 }
