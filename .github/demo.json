@@ -1,0 +1,16 @@
+{
+  "title": "language-shellscript",
+  "description": "Shell Script syntax highlighting in the editor.",
+  "recordedOn": "2026-10-13",
+  "sourceRevision": "1a6fc64b6064b217a36354ccb6b5a1535e91747b",
+  "mode": "normal",
+  "fontSettings": "default",
+  "images": [
+    {
+      "file": "demo.png",
+      "label": "Shell Script syntax highlighting at the default editor font size.",
+      "width": 1100,
+      "height": 582
+    }
+  ]
+}
