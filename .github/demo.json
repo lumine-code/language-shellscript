@@ -1,16 +1,61 @@
 {
   "title": "language-shellscript",
-  "description": "Shell Script syntax highlighting in the editor.",
-  "recordedOn": "2026-10-13",
-  "sourceRevision": "1a6fc64b6064b217a36354ccb6b5a1535e91747b",
+  "description": "Shell Script syntax highlighting at the default editor font size.",
+  "recordedOn": "2026-10-14",
+  "sourceRevision": "ae64ff2dfee9603b54e3978a84d078124397c4ff",
+  "themeSourceRevision": "14a69683b0e3238e2bc128fbfae3866c1e4ee9c6",
   "mode": "normal",
   "fontSettings": "default",
+  "scenario": "demo.js",
+  "recipeHash": "0badf49ca322f15561d0c85aaa2cd92f7f7557b0169b3a952f4fba3478da959c",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "electron": "44.7.0",
+    "chrome": "152.0.7977.130",
+    "devicePixelRatio": 1,
+    "locale": "en-GB",
+    "fontFamily": "Fira Code, Menlo, DejaVu Sans Mono, Consolas, monospace",
+    "fontSize": 14,
+    "themes": ["one-day-syntax", "one-day-ui"]
+  },
+  "viewport": { "width": 1100, "height": 582 },
+  "cornerRadius": 10,
+  "sources": {
+    "editor": {
+      "revision": "0362a9fac7d6e153a768c0381800d6f3eb06647a",
+      "dirty": true,
+      "workingTreeHash": "1d75658a8b7d55a69c806a3786c562863bb9d5c71cbf96b3084c6a78c0d648b4"
+    },
+    "package": {
+      "revision": "ae64ff2dfee9603b54e3978a84d078124397c4ff",
+      "dirty": true,
+      "workingTreeHash": "20a3f1cbb23b5d3aa9319d4f28ea8e173b1e999042104df63c3b5879f5309ed5"
+    },
+    "language-shellscript": {
+      "revision": "ae64ff2dfee9603b54e3978a84d078124397c4ff",
+      "dirty": true,
+      "workingTreeHash": "20a3f1cbb23b5d3aa9319d4f28ea8e173b1e999042104df63c3b5879f5309ed5"
+    },
+    "one-theme": {
+      "revision": "14a69683b0e3238e2bc128fbfae3866c1e4ee9c6",
+      "dirty": true,
+      "workingTreeHash": "50ec2f83a6347dd8113870992ec4eb2be4014f3d9e12213c2f51b543f1eca793"
+    }
+  },
+  "fixtures": [
+    {
+      "file": "process.sh",
+      "sha256": "1b2af0b7dcd6575f1a461b0c17067b7ec2ea883a9292603f5d6778443b2fade6"
+    }
+  ],
   "images": [
     {
       "file": "demo.png",
       "label": "Shell Script syntax highlighting at the default editor font size.",
       "width": 1100,
-      "height": 582
+      "height": 582,
+      "sha256": "2f8db5442ca99aa9c67c539534c93a3adc8fcef70b9f0deea338110e384e0b51"
     }
   ]
 }
