@@ -8,3 +8,7 @@
   (#set! injection.language "todo")
   (#set! injection.language-scope "none")
   (#set! injection.include-children))
+
+([(raw_string) (string_content)] @injection.owner @injection.content
+  (#set! injection.language "hyperlink")
+  (#set! injection.language-scope "none"))
