@@ -23,6 +23,21 @@ describe("Shell Script modeline selection", () => {
     expect(grammar.firstLineRegex.test("preceding line\n// vim: set ft=bash:")).toBe(true);
   });
 
+  it("accepts a complete alias followed by a line ending without a colon", () => {
+    for (const ending of ["\n", "\r\n"])
+      for (const key of ["filetype", "ft", "syntax"])
+        for (const shell of ["sh", "bash", "ksh", "zsh"]) {
+          const prefix = "# vim: set " + key + "=";
+          const text = prefix + shell + ending + ending + 'echo "hi"';
+          expect(lumine.grammars.selectGrammar("modeline", text).scopeName)
+            .withContext(text)
+            .toBe("source.shell");
+          expect(
+            lumine.grammars.selectGrammar("modeline", prefix + shell + "-extra" + ending).scopeName,
+          ).not.toBe("source.shell");
+        }
+  });
+
   it("keeps failed modelines from revisiting Vim and set tokens", () => {
     expect(grammar.firstLineRegex.source).toContain("(?:(?!vim\\b).)*vim\\b");
     expect(grammar.firstLineRegex.source).toContain("(?:(?!\\bset\\b).)*\\bset\\b");
