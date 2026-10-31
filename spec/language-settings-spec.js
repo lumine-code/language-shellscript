@@ -22,11 +22,20 @@ describe("shellscript editing settings", () => {
         "#!/bin/" + shell + "\r\n",
       ])
         expect(lumine.grammars.selectGrammar("script", text).scopeName).toBe("source.shell");
+    for (const shell of ["sh.exe", "bash.exe", "zsh.exe"])
+      for (const text of [
+        "#!/usr/bin/" + shell,
+        "#!/usr/bin/env " + shell,
+        "#!/usr/bin/env.exe -S " + shell + " -eu",
+      ])
+        expect(lumine.grammars.selectGrammar("script", text).scopeName).toBe("source.shell");
     for (const text of [
       "#!/usr/bin/env fish",
       "#!/bin/csh",
       "#!/usr/bin/env nu",
       "#!/usr/bin/env bashful",
+      "#!/usr/bin/bash.exe-wrapper",
+      "#!/usr/bin/env.exe -S python -c sh.exe",
       "#!/usr/bin/python -c sh",
     ])
       expect(lumine.grammars.selectGrammar("script", text).scopeName).not.toBe("source.shell");
@@ -37,6 +46,9 @@ describe("shellscript editing settings", () => {
         lumine.grammars.selectGrammar("modeline", "# Header\n# vim: set ft=" + shell + ":")
           .scopeName,
       ).toBe("source.shell");
+    expect(
+      lumine.grammars.selectGrammar("modeline", "# Header\n# More\n# vim: set ft=bash:").scopeName,
+    ).not.toBe("source.shell");
   });
   it("keeps the line comment syntax for scripts selected by their shebang", async () => {
     await start("source.shell", "printf value");

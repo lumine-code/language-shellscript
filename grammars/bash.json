@@ -28,7 +28,7 @@
   ],
   "firstLineRegex": [
     // shebang line
-    "^#![ \\t]*(?:/[^\\r\\n \\t]*/(?:bash|sh|ksh|zsh)|/[^\\r\\n \\t]*/env[ \\t]+(?:-S[ \\t]+)?(?:bash|sh|ksh|zsh))(?=[ \\t\\r\\n]|$)[^\\r\\n]*(?:\\r?\\n|$)",
+    "^#![ \\t]*(?:/[^\\x0d\\x0a \\t]*/(?:bash(?:\\.exe)?|sh(?:\\.exe)?|ksh|zsh(?:\\.exe)?)|/[^\\x0d\\x0a \\t]*/env(?:\\.exe)?[ \\t]+(?:-S[ \\t]+)?(?:bash(?:\\.exe)?|sh(?:\\.exe)?|ksh|zsh(?:\\.exe)?))(?=[ \\t\\x0d\\x0a]|$)[^\\x0d\\x0a]*(?:\\r?\\n|$)",
     // vim modeline
     // Stop at the first Vim and set tokens instead of backtracking over them.
     // \x0a keeps existing shebang prefix line counts unchanged.
