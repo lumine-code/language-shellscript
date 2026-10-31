@@ -49,6 +49,10 @@ describe("shellscript editing settings", () => {
     expect(
       lumine.grammars.selectGrammar("modeline", "# Header\n# More\n# vim: set ft=bash:").scopeName,
     ).not.toBe("source.shell");
+    for (const name of ["shorthand", "bashful", "kshader", "zshader", "zsh-extra"])
+      expect(lumine.grammars.selectGrammar("modeline", "# vim: set ft=" + name + ":").scopeName)
+        .withContext(name)
+        .not.toBe("source.shell");
   });
   it("keeps the line comment syntax for scripts selected by their shebang", async () => {
     await start("source.shell", "printf value");
