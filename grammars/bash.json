@@ -41,6 +41,7 @@
     "wasmBuildTool": "tree-sitter-cli#v0.27.2",
     "grammar": "bash.wasm",
     "highlightsQuery": "bash-highlights.scm",
+    "tagsQuerySupportsLocalPath": true,
     "tagsQuery": "bash-tags.scm",
     "foldsQuery": "bash-folds.scm",
     "indentsQuery": "bash-indents.scm",
